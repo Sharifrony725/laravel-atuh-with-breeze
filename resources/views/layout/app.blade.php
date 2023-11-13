@@ -10,25 +10,33 @@
     <nav class="flex justify-between bg-white p-6 items-center">
         <ul class="flex gap-5">
             <li>
-                <a href="http://">Home</a>
+                <a href="{{ route('home') }}">Home</a>
             </li>
             <li>
-                <a href="http://">Dashboard</a>
+                <a href="{{ route('dashboard') }}">Dashboard</a>
             </li>
         </ul>
         <ul class="flex gap-5">
+        @auth
             <li>
-                <a href="http://">Login</a>
+                <a href="#">{{ auth()->user()->name }}</a>
             </li>
             <li>
-                <a href="http://">Register</a>
+                <form action="{{ route('logout') }}" method="post" class="p-3 inline">
+                    @csrf
+                    <button type="submit" >Logout</button>
+                </form>
+
+            </li>
+         @endauth
+         @guest()
+            <li>
+                <a href="{{ route('login') }}">Login</a>
             </li>
             <li>
-                <a href="http://">Sharif Rony</a>
+                <a href="{{ route('register') }}">Register</a>
             </li>
-            <li>
-                <a href="http://">Logout</a>
-            </li>
+         @endguest
         </ul>
     </nav>
     <div class="container mx-auto mt-5">
