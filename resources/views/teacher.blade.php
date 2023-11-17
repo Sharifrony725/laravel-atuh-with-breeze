@@ -1,6 +1,10 @@
 @foreach ($teachers as $item)
-   Name: {{ $item->rTeacher->name }} <br>
-   Email: {{ $item->rTeacher->email }} <br>
-   Phone: {{ $item->rTeacher->phone }} <br>
-   Salary: {{ $item->salary }} <hr>
+   Name: {{ $item->name }} <br>
+   Email: {{ $item->email }} <br>
+   Phone: {{ $item->phone }} <br>
+
+   @foreach ($item->rSalary as $salary)
+         Salary: {{ $salary->salary }} <br>
+   @endforeach
+   <hr>
 @endforeach

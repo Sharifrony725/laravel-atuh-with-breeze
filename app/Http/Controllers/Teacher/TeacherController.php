@@ -10,7 +10,7 @@ use App\Models\Salary;
 class TeacherController extends Controller
 {
     public function view(){
-        $teachers = Salary::with('rTeacher')->get();
+        $teachers = Teacher::with('rSalary')->get();
         return view('teacher', compact('teachers'));
     }
 }
