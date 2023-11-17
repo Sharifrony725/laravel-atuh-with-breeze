@@ -9,8 +9,8 @@ class Teacher extends Model
 {
     use HasFactory;
 
-    public function rSalary(){
-        return $this->hasOne(Salary::class);
-    }
+    // public function rSalary(){
+    //     return $this->hasOne(Salary::class);
+    // }
 
 }
